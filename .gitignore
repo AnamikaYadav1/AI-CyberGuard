@@ -1,0 +1,17 @@
+# Python cache & virtual env
+__pycache__/
+*.pyc
+venv/
+
+# Model & data files
+models/
+data/*.csv
+data/*.db
+*.joblib
+
+# Secrets
+.env
+
+# Logs & temporary
+*.log
+*.tmp

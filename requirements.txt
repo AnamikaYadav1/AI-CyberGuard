@@ -1,0 +1,8 @@
+﻿streamlit
+pandas
+numpy
+scikit-learn
+xgboost
+tldextract
+joblib
+nltk
