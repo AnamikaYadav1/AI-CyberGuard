@@ -2,7 +2,12 @@
 pandas
 numpy
 scikit-learn
-xgboost
-tldextract
 joblib
-nltk
+tldextract
+lime
+plotly
+tweepy
+python-dotenv
+sqlalchemy
+matplotlib
+shap
