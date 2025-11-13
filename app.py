@@ -14,6 +14,7 @@ from scripts.fake_profile import heuristic_profile_score
 from scripts.db_logger import log_scan, fetch_logs
 from scripts.analytics import fetch_all_scans, summarize_data
 from scripts.ids_engine import generate_fake_attack   # NEW IDS ENGINE
+from scripts.ip_reputation import check_ip_reputation
 
 # ------------------------------------------------------
 # STREAMLIT CONFIG (always keep first)
@@ -48,13 +49,15 @@ st.markdown("Detect **malicious URLs**, **cyberbullying content**, **fake profil
 # ------------------------------------------------------
 # TABS (MUST come before using tab1)
 # ------------------------------------------------------
-tab1, tab2, tab3, tab4, tab5 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "🔗 URL Scanner",
     "💬 Text Analyzer",
     "📊 Analytics Dashboard",
     "🕵️ Fake Profile Detector",
-    "🛡️ Network IDS Monitor"
+    "🛡️ Network IDS Monitor",
+    "🌐 IP Reputation Checker"
 ])
+
 
 # =====================================================
 # 🔗 URL SCANNER TAB
@@ -224,3 +227,51 @@ with tab5:
         )
 
     st.info("Live packet sniffing mode (with Scapy) will be added in next upgrade.")
+# =====================================================
+# 🌐 IP REPUTATION CHECKER
+# =====================================================
+with tab6:
+    st.subheader("🌐 IP Reputation Checker (AbuseIPDB)")
+
+    ip = st.text_input("Enter IP Address")
+
+    if st.button("Check IP Reputation"):
+        if ip.strip():
+            with st.spinner("Checking IP reputation..."):
+                data, error = check_ip_reputation(ip)
+
+            if error:
+                st.error(f"❌ Error: {error}")
+            else:
+                score = data.get("abuseConfidenceScore", 0)
+                total_reports = data.get("totalReports", 0)
+                country = data.get("countryCode", "Unknown")
+                last_report = data.get("lastReportedAt", "N/A")
+
+                # Classification
+                if score >= 70:
+                    st.error(f"🟥 HIGH RISK — Abuse Score: {score}")
+                    result = "High-Risk IP"
+                elif score >= 30:
+                    st.warning(f"🟧 Suspicious IP — Abuse Score: {score}")
+                    result = "Suspicious IP"
+                else:
+                    st.success(f"🟩 Clean IP — Abuse Score: {score}")
+                    result = "Clean IP"
+
+                # Show details
+                st.write("### 📊 Details")
+                st.write(f"- **Country:** {country}")
+                st.write(f"- **Total Reports:** {total_reports}")
+                st.write(f"- **Last Reported:** {last_report}")
+
+                # Log into DB
+                log_scan(
+                    scan_type="IP Reputation",
+                    input_data=ip,
+                    result=result,
+                    confidence=score
+                )
+
+        else:
+            st.warning("Please enter an IP address.")
