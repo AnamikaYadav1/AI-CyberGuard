@@ -5,13 +5,13 @@ import joblib
 import pandas as pd
 import numpy as np
 
-# ✅ Dynamically add ai_cyber_guard root folder to Python path
+# Dynamically add ai_cyber_guard root folder to Python path
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(current_dir, os.pardir))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-# ✅ Now import your feature extractor safely
+# Now import your feature extractor safely
 from scripts.url_features import extract_url_features
 
 # -------------------------------
@@ -21,9 +21,9 @@ model_path = os.path.join(project_root, 'models', 'url_model.joblib')
 
 try:
     model = joblib.load(model_path)
-    print("✅ Model loaded successfully.")
+    print("[OK] Model loaded successfully.")
 except Exception as e:
-    print(f"❌ Error loading model: {e}")
+    print(f"[ERROR] Error loading model: {e}")
     model = None
 
 # -------------------------------
@@ -36,9 +36,9 @@ if model is not None:
             [extract_url_features("https://example.com")]
         )
         explainer = shap.Explainer(model.predict_proba, background)
-        print("✅ SHAP KernelExplainer initialized successfully.")
+        print("[OK] SHAP KernelExplainer initialized successfully.")
     except Exception as e:
-        print(f"❌ Error initializing SHAP explainer: {e}")
+        print(f"[ERROR] Error initializing SHAP explainer: {e}")
         explainer = None
 
 
@@ -66,5 +66,5 @@ def explain_url(url):
         return importance
 
     except Exception as e:
-        print(f"❌ Error during SHAP explanation: {e}")
+        print(f"[ERROR] Error during SHAP explanation: {e}")
         return [("SHAP explanation error", 0)]

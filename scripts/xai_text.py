@@ -26,5 +26,5 @@ def top_text_tokens(tfidf, model, text, top_n=8):
         return results if results else [("No influential words found", 0)]
 
     except Exception as e:
-        print(f"❌ Error in text explainability: {e}")
+        print(f"[ERROR] Error in text explainability: {e}")
         return [("Explainability error", 0)]
