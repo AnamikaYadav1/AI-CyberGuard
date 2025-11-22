@@ -1,4 +1,10 @@
-﻿import random, time, os, sqlite3
+"""
+importing random to dandomise the new things 
+
+"""
+
+
+import random, time, os, sqlite3
 from faker import Faker
 from datetime import datetime
 
