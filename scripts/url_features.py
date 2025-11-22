@@ -24,3 +24,12 @@ def extract_url_features(url):
     for kw in ['login','secure','update','bank','free','verify','bonus']:
         feats[f'kw_{kw}'] = int(kw in url.lower())
     return feats
+"""# Example usage
+if __name__ == "__main__":
+    test_url = "http://secure-login.bank-update.com/free-offer"
+    features = extract_url_features(test_url)
+    print("Extracted URL Features:")
+    for k, v in features.items():
+        print(f"{k}: {v}")
+    helper: # --- IGNORE ---
+"""

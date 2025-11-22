@@ -76,3 +76,23 @@ try:
     print("✅ Step 8: Model saved successfully as url_model.joblib")
 except Exception as e:
     print("❌ Error saving model:", e)
+"""
+# Example usage
+if __name__ == "__main__":
+    # Load model
+    model = joblib.load('../models/url_model.joblib')
+
+    # Sample URL for prediction
+    sample_url = "http://example.com/suspicious"
+
+    # Extract features
+    sample_features = pd.DataFrame([extract_url_features(sample_url)])
+
+    # Predict
+    prediction = model.predict(sample_features)[0]
+    proba = model.predict_proba(sample_features)[0][1]
+
+    print(f"URL: {sample_url}")
+    print(f"Prediction (1=malicious, 0=benign): {prediction}")
+    print(f"Malicious Probability: {proba}")
+"""

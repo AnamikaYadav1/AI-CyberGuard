@@ -49,3 +49,21 @@ def generate_fake_attack():
         "event": attack,
         "timestamp": timestamp
     }
+"""# Example usage
+if __name__ == "__main__":
+    sample_logs = [
+        "2024-06-01 12:00:00 PORT=22,23,80,443,8080",
+        "2024-06-01 12:05:00 FAILED LOGIN user=admin count=7",
+        "2024-06-01 12:10:00 SQL QUERY='SELECT * FROM users WHERE username='' OR '1'='1' --'",
+        "2024-06-01 12:15:00 DOWNLOAD URL=http://malicious.com/malware.exe",
+    ]
+
+    for log in sample_logs:
+        for detector in [detect_port_scan, detect_brute_force, detect_sql_injection,
+                         detect_malware_download, detect_failed_login]:
+            detected, attack_type = detector(log)
+            if detected:
+                print(f"Detected {attack_type} in log: {log}")
+
+    fake_attack = generate_fake_attack()
+    print("Generated Fake Attack:", fake_attack)

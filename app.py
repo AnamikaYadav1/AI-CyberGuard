@@ -275,3 +275,24 @@ with tab6:
 
         else:
             st.warning("Please enter an IP address.")
+"""# Example usage
+if __name__ == "__main__":
+    data = fetch_all_scans()
+    summary = summarize_data(data)
+    print("Summary Statistics:")
+    print(f"Total Scans: {summary['total']}")
+    print(f"Malicious Scans: {summary['malicious']}")
+    print(f"Safe Scans: {summary['safe']}")
+    print(f"Safe Scans: {summary['safe']}")
+    print(f"Safe Scans: {summary['safe']}")
+    print(f"Safe Scans: {summary['safe']}")
+    helper: # --- IGNORE ---
+    print(f"Safe Scans: {summary['safe']}")
+    else:
+        data = fetch_all_scans()
+        summary = summarize_data(data)
+        print("Summary Statistics:")
+        print(f"Total Scans: {summary['total']}")
+        print(f"Malicious Scans: {summary['malicious']}")
+        print(f"Safe Scans: {summary['safe']}")
+"""

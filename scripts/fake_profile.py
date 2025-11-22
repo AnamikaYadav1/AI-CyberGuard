@@ -29,3 +29,18 @@ def heuristic_profile_score(profile):
         score += 0.15
 
     return min(score, 1.0)
+
+
+"""# Example usage
+if __name__ == "__main__":
+    sample_profile = {
+        "username": "user123456",
+        "created_at": "2024-05-15T10:00:00",
+        "followers": 5,
+        "following": 100,
+        "profile_image_default": True
+    }
+    score = heuristic_profile_score(sample_profile)
+    print(f"Profile Risk Score: {score}")
+    helper: # --- IGNORE ---
+"""

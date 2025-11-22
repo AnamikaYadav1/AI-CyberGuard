@@ -29,3 +29,13 @@ def send_alert(recipient, subject, message):
 
     except Exception as e:
         print(f"❌ Failed to send email alert: {e}")
+
+
+"""
+# Example usage
+if __name__ == "__main__":
+    recipient_email = "recipient@example.com"   
+    alert_subject = "Threat Detected!"
+    alert_message = "A potential threat has been detected in the system. Please investigate immediately."
+    send_alert(recipient_email, alert_subject, alert_message)
+"""

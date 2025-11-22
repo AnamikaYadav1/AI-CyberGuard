@@ -51,3 +51,23 @@ joblib.dump(model, os.path.join(base_path, '..', 'models', 'text_model.joblib'))
 joblib.dump(tfidf, os.path.join(base_path, '..', 'models', 'tfidf_vectorizer.joblib'))
 
 print("✅ Model training complete and saved in /models folder.")
+"""
+# Example usage
+if __name__ == "__main__":
+    # Load model and vectorizer
+    model = joblib.load(os.path.join(base_path, '..', 'models', 'text_model.joblib'))
+    tfidf = joblib.load(os.path.join(base_path, '..', 'models', 'tfidf_vectorizer.joblib'))
+
+    # Sample text for prediction
+    sample_texts = [
+        "You are so stupid and ugly!",
+        "I hope you have a great day!",
+        "Click this link to win a prize!",
+        "Let's work together on this project."
+    ]
+
+    for text in sample_texts:
+        X_sample = tfidf.transform([text])
+        pred = model.predict(X_sample)[0]
+        print(f"Text: {text}\nPrediction: {pred}\n")
+"""

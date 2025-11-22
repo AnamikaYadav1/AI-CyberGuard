@@ -51,3 +51,13 @@ def analyze_twitter_user(username, limit=20):
         return df, None
 
     return None, "❌ No tweets found"
+""" 
+# Example usage
+if __name__ == "__main__":
+    username = "example_user"  # Replace with target Twitter username
+    data, error = analyze_twitter_user(username, limit=10)
+    if error:
+        print(error)
+    else:
+        print(data)
+"""

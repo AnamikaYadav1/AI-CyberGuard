@@ -30,3 +30,17 @@ def check_ip_reputation(ip_address):
 
     except Exception as e:
         return None, str(e)
+
+
+"""
+# Example usage
+if __name__ == "__main__":
+    test_ip = "8.8.8.8"
+    reputation, error = check_ip_reputation(test_ip)
+    if error:
+        print(f"Error checking IP reputation: {error}")
+    elif reputation:
+        print(f"Reputation data for {test_ip}: {reputation}")
+    else:
+        print(f"No data found for IP: {test_ip}")
+"""

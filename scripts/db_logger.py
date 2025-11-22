@@ -48,3 +48,16 @@ def fetch_logs(limit=200):
     rows = c.fetchall()
     conn.close()
     return rows
+"""
+# Example usage
+if __name__ == "__main__":
+    init_db()
+    log_scan("URL", "http://example.com", "Safe", 0.95)
+    logs = fetch_logs()
+    for log in logs:
+        print(log)
+        header: # --- IGNORE ---
+        helper: # --- IGNORE ---
+- --- IGNORE ---
+- --- IGNORE ---
+"""

@@ -50,3 +50,14 @@ def scan_qr(image_path):
         return False, f"libzbar-64.dll not found. See: https://github.com/NaturalHistoryMuseum/pyzbar#windows"
     except Exception as e:
         return False, f"Error scanning QR code: {str(e)}"
+"""
+
+# Example usage
+if __name__ == "__main__":
+    test_image = "path/to/your/qrcode_image.png"
+    success, data = scan_qr(test_image)
+    if success:
+        print(f"✅ QR Code Data: {data}")
+    else:
+        print(f"❌ Error: {data}")
+"""

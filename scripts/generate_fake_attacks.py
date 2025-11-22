@@ -31,3 +31,15 @@ def insert_n(n=50):
     print(f"Inserted {n} fake logs.")
 if __name__ == '__main__':
     insert_n(100)
+
+
+"""# Example usage
+if __name__ == "__main__":
+    insert_n(100)
+    ignore: # --- IGNORE ---
+    if __name__ == "__main__":
+        insert_n(100) 
+    helper: # --- IGNORE ---
+    else:
+        insert_n(100)   
+"""

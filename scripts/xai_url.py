@@ -68,3 +68,66 @@ def explain_url(url):
     except Exception as e:
         print(f"[ERROR] Error during SHAP explanation: {e}")
         return [("SHAP explanation error", 0)]
+"""
+# Example usage
+if __name__ == "__main__":
+    test_url = "http://secure-login.bank-update.com/free-offer"
+    explanations = explain_url(test_url)
+    print(f"Top feature influences for URL: {test_url}")
+    for feature, value in explanations:
+        print(f"{feature}: {value}")
+    helper: # --- IGNORE ---
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# -------------------------------
+# Training script (for reference)

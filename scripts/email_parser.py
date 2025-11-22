@@ -78,3 +78,18 @@ def simple_phish_score(parsed):
         score += 0.2
     # clamp
     return min(score, 1.0)
+ 
+
+ """
+# Example usage
+if __name__ == "__main__":
+    eml_path = "sample_email.eml"  # replace with your .eml file path
+    parsed_email = parse_eml(eml_path)
+    print("Parsed Email:")
+    print(f"From: {parsed_email['headers'].get('From','')}")
+    print(f"Subject: {parsed_email['headers'].get('Subject','')}")
+    print(f"Links: {parsed_email['links']}")
+    print(f"Attachments: {parsed_email['attachments']}")
+    score = simple_phish_score(parsed_email)
+    print(f"Phishing Score: {score:.2f}")
+"""

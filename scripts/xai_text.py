@@ -28,3 +28,18 @@ def top_text_tokens(tfidf, model, text, top_n=8):
     except Exception as e:
         print(f"[ERROR] Error in text explainability: {e}")
         return [("Explainability error", 0)]
+"""# Example usage
+if __name__ == "__main__":
+    # Load model and vectorizer
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    model = joblib.load(os.path.join(base_path, '..', 'models', 'text_model.joblib'))
+    tfidf = joblib.load(os.path.join(base_path, '..', 'models', 'tfidf_vectorizer.joblib'))
+
+    # Sample text for explanation
+    sample_text = "You are such a loser and nobody likes you."
+
+    explanations = top_text_tokens(tfidf, model, sample_text)
+    print(f"Top influential tokens for the sample text:\n")
+    for token, value in explanations:
+        print(f"{token}: {value}")
+"""

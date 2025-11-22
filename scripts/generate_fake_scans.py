@@ -46,3 +46,10 @@ def generate_fake_data():
 
 if __name__ == "__main__":
     generate_fake_data()
+
+
+"""# Example usage  
+if __name__ == "__main__":
+    generate_fake_data()
+    helper: # --- IGNORE ---
+"""

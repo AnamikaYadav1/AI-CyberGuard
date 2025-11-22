@@ -28,3 +28,13 @@ def summarize_data(df):
         "malicious": len(malicious),
         "safe": len(safe)
     }
+"""
+# Example usage
+if __name__ == "__main__":
+    data = fetch_all_scans()
+    summary = summarize_data(data)
+    print("Summary Statistics:")
+    print(f"Total Scans: {summary['total']}")
+    print(f"Malicious Scans: {summary['malicious']}")
+    print(f"Safe Scans: {summary['safe']}")
+"""

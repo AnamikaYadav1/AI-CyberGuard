@@ -35,3 +35,14 @@ def scan_file(file_path):
         return True, malware_db[file_hash]  # (is_malware, malware_name)
     else:
         return False, "Unknown File (Not in database)"
+""" 
+# Example usage
+if __name__ == "__main__":
+    test_file = "path/to/your/testfile.exe"
+    is_malware, message = scan_file(test_file)
+    if is_malware:
+        print(f"⚠️ Malware Detected: {message}")
+    else:
+        print("✅ File is clean.")
+    
+"""
