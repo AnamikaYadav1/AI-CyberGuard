@@ -1,5 +1,7 @@
 # scripts/generate_fake_scans.py
-
+"""
+importing the library to modify things 
+"""
 import random
 from datetime import datetime, timedelta
 from db_logger import log_scan, init_db
